@@ -1,4 +1,6 @@
 # VotingApp
+## モック
+https://prottapp.com/p/6f84ec
 ## 環境構築
 ### AndroidStudioで行う
 #### 手順
