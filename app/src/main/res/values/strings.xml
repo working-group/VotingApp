@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">VotingApp</string>
+    <string name="resultPage">結果</string>
+    <string name="return_listPage">一覧へ</string>
 </resources>
