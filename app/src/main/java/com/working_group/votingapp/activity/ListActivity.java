@@ -16,11 +16,20 @@ public class ListActivity extends AppCompatActivity {
     }
 
     /**
-     * 結果ページ
+     * 結果画面遷移
      */
-    public void resultAct(View view) {
+    public void questionResult(View view) {
 
         Intent intent = new Intent(getApplication(), ResultActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * アンケート追加画面遷移
+     */
+    public void addQuestion(View view) {
+
+        Intent intent = new Intent(getApplication(), AddQuestionActivity.class);
         startActivity(intent);
     }
 }
