@@ -10,11 +10,14 @@ import java.io.IOException;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
-public class ApiClient extends AsyncTask<String, Void, JSONObject> {
+public class ApiClient extends AsyncTask<Void, Void, JSONObject> {
 
     private AsyncCallback mAsyncCallback = null;
     private OkHttpClient client = new OkHttpClient();
+    private Request request;
 
     public interface AsyncCallback {
         void postExecute(JSONObject result);
@@ -25,10 +28,10 @@ public class ApiClient extends AsyncTask<String, Void, JSONObject> {
     }
 
     @Override
-    protected JSONObject doInBackground(String... _uri) {
+    protected JSONObject doInBackground(Void... _params) {
         JSONObject resJson = null;
         try {
-            String result = run(_uri[0]);
+            String result = run(request);
             resJson = new JSONObject(result);
         } catch(IOException e) {
             e.printStackTrace();
@@ -44,16 +47,24 @@ public class ApiClient extends AsyncTask<String, Void, JSONObject> {
         mAsyncCallback.postExecute(_result);
     }
 
-    public void get(String... _uri) {
-        execute(_uri);
+    public void get(String uri) {
+        request = new Request.Builder()
+                .url(uri)
+                .build();
+
+        execute();
+    }
+
+    public void post(String uri, JSONObject body) {
+        MediaType MIMEType= MediaType.parse("application/json; charset=utf-8");
+        RequestBody requestBody = RequestBody.create (MIMEType, body.toString());
+        request = new Request.Builder().url(uri).post(requestBody).build();
+
+        execute();
     }
 
     // OKHttpを使った通信処理
-    private String run(String url) throws IOException {
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
+    private String run(Request request) throws IOException {
         Response response = client.newCall(request).execute();
         return response.body().string();
     }
