@@ -67,10 +67,18 @@ public class AddQuestionActivity extends AppCompatActivity {
             // 選択肢3の取得
             EditText editOption3 = (EditText)findViewById(R.id.add_third_option);
             String getOption3 = editOption3.getText().toString();
+            if (getOption3.isEmpty()) {
+                Toast.makeText(this, "選択肢3を入力してください。", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             // 選択肢4の取得
             EditText editOption4 = (EditText)findViewById(R.id.add_fourth_option);
             String getOption4 = editOption4.getText().toString();
+            if (getOption4.isEmpty()) {
+                Toast.makeText(this, "選択肢4を入力してください。", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             intent.putExtra("title", getTitle);
             intent.putExtra("contents", getContents);
