@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">VotingApp</string>
+    <string name="resultPage">結果</string>
+    <string name="return_listPage">一覧へ</string>
+    <string name="addQuestionPage">アンケート追加</string>
+    <string name="confirm">確認</string>
+    <string name="title">タイトル</string>
+    <string name="title_name">◯◯についてのアンケート</string>
+    <string name="question">質問</string>
+    <string name="question_name">◯◯についてどう思いますか？</string>
+    <string name="first_option">選択肢1</string>
+    <string name="second_option">選択肢2</string>
+    <string name="third_option">選択肢3</string>
+    <string name="fourth_option">選択肢4</string>
+    <string name="create">作成</string>
 </resources>
