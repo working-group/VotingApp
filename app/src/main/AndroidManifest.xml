@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".activity.ResultActivity" />
         <activity android:name=".activity.AddQuestionActivity" />
-        <activity android:name=".activity.addQuestionConfirm"></activity>
+        <activity android:name=".activity.addQuestionConfirm" />
+        <activity android:name=".activity.AnswerActivity" />
     </application>
 
 </manifest>

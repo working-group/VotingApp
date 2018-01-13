@@ -32,4 +32,13 @@ public class ListActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplication(), AddQuestionActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * アンケート回答画面遷移
+     */
+    public void questionAnswer(View view) {
+
+        Intent intent = new Intent(getApplication(), AnswerActivity.class);
+        startActivity(intent);
+    }
 }
