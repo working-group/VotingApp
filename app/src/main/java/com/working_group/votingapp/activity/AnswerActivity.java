@@ -12,7 +12,7 @@ public class AnswerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+        setContentView(R.layout.activity_answer);
         setTitle("回答画面");
 
         Button returnButton = (Button) findViewById(R.id.return_listActivity);

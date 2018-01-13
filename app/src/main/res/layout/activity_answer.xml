@@ -14,17 +14,36 @@
         android:layout_width="106dp"
         android:layout_height="43dp"
         app:layout_editor_absoluteY="452dp"
-        app:layout_editor_absoluteX="47dp" />
+        app:layout_editor_absoluteX="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="27dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="206dp"
-        android:layout_height="25dp"
-        android:text="タイトル"
+        android:layout_width="239dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
+        android:text="タイトル"
         android:textSize="25sp"
-        app:layout_editor_absoluteY="35dp"
-        app:layout_editor_absoluteX="89dp" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_editor_absoluteX="89dp"
+        app:layout_editor_absoluteY="35dp" />
 
     <TextView
         android:id="@+id/question"
@@ -34,39 +53,17 @@
         android:gravity="center"
         android:textSize="17sp"
         app:layout_editor_absoluteY="95dp"
-        app:layout_editor_absoluteX="73dp" />
-
-    <RadioButton
-        android:id="@+id/answer1"
-        android:layout_width="176dp"
-        android:layout_height="27dp"
-        android:text="選択肢A"
-        app:layout_editor_absoluteX="104dp"
-        app:layout_editor_absoluteY="190dp" />
-
-    <RadioButton
-        android:id="@+id/answer2"
-        android:layout_width="176dp"
-        android:layout_height="27dp"
-        android:text="選択肢B"
-        app:layout_editor_absoluteX="104dp"
-        app:layout_editor_absoluteY="225dp" />
-
-    <RadioButton
-        android:id="@+id/answer3"
-        android:layout_width="176dp"
-        android:layout_height="27dp"
-        android:text="選択肢C"
-        app:layout_editor_absoluteX="104dp"
-        app:layout_editor_absoluteY="260dp" />
-
-    <RadioButton
-        android:id="@+id/answer4"
-        android:layout_width="176dp"
-        android:layout_height="27dp"
-        android:text="選択肢D"
-        app:layout_editor_absoluteX="104dp"
-        app:layout_editor_absoluteY="295dp" />
+        app:layout_editor_absoluteX="73dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView"
@@ -74,7 +71,17 @@
         android:layout_height="wrap_content"
         android:text="コメント:"
         app:layout_editor_absoluteX="65dp"
-        app:layout_editor_absoluteY="379dp" />
+        app:layout_editor_absoluteY="379dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/editText"
+        android:layout_marginRight="16dp"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintTop_toTopOf="@+id/guideline11"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintVertical_bias="0.509" />
 
     <EditText
         android:id="@+id/editText"
@@ -84,6 +91,110 @@
         android:inputType="textPersonName"
         android:text=""
         app:layout_editor_absoluteX="137dp"
-        app:layout_editor_absoluteY="370dp" />
+        app:layout_editor_absoluteY="370dp"
+        android:layout_marginRight="44dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline11"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline9"
+        app:layout_constraintGuide_begin="158dp"
+        android:orientation="horizontal" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline10"
+        app:layout_constraintGuide_begin="80dp"
+        android:orientation="horizontal" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline11"
+        app:layout_constraintGuide_begin="366dp"
+        android:orientation="horizontal" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline12"
+        app:layout_constraintGuide_begin="449dp"
+        android:orientation="horizontal" />
+
+    <RadioGroup
+        android:id="@+id/answers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline11">
+
+        <RadioButton
+            android:id="@+id/answer1"
+            android:layout_width="239dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="選択肢A"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+        <RadioButton
+            android:id="@+id/answer2"
+            android:layout_width="239dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="選択肢B"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answer1" />
+
+        <RadioButton
+            android:id="@+id/answer3"
+            android:layout_width="239dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="13dp"
+            android:gravity="center"
+            android:text="選択肢C"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answer2" />
+
+        <RadioButton
+            android:id="@+id/answer4"
+            android:layout_width="239dp"
+            android:layout_height="27dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="選択肢D"
+            app:layout_constraintBottom_toTopOf="@+id/guideline11"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/answer3"
+            app:layout_constraintVertical_bias="0.166" />
+    </RadioGroup>
 
 </android.support.constraint.ConstraintLayout>
