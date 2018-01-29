@@ -1,13 +1,15 @@
 package com.working_group.votingapp.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.working_group.votingapp.Datasources.Api.ApiClient;
+import com.working_group.votingapp.entities.Enquete;
+import com.working_group.votingapp.libs.EnqueteListAdapter;
 import com.working_group.votingapp.R;
 
 import org.json.JSONArray;
@@ -33,9 +35,11 @@ public class ListActivity extends AppCompatActivity {
     /**
      * 結果画面遷移
      */
-    public void questionResult(View view) {
-
+    public void sendResultPage(Enquete enquete) {
         Intent intent = new Intent(getApplication(), ResultActivity.class);
+        intent.putExtra("enqueteId", enquete.getId());
+        //TODO: デバッグコード（titleは詳細からも取れるハズなので渡さなくても良いハズ）
+        intent.putExtra("title", enquete.getTitle());
         startActivity(intent);
     }
 
@@ -51,25 +55,46 @@ public class ListActivity extends AppCompatActivity {
     /**
      * アンケート回答画面遷移
      */
-    public void questionAnswer(View view) {
-
+    private void sendAnswerPage(Enquete enquete) {
         Intent intent = new Intent(getApplication(), AnswerActivity.class);
+        intent.putExtra("enqueteId", enquete.getId());
+        //TODO: デバッグコード（titleは詳細からも取れるハズなので渡さなくても良いハズ）
+        intent.putExtra("title", enquete.getTitle());
         startActivity(intent);
     }
 
     private void viewEnqueteList(JSONObject result) {
-        ListView listView = (ListView) findViewById(R.id.listView);
-        ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        final ListView listView = (ListView) findViewById(R.id.listView);
+        final EnqueteListAdapter adapter = new EnqueteListAdapter(this);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Enquete enquete = adapter.getItem(position);
+                switch (view.getId()) {
+                    case R.id.answer_button:
+                        sendAnswerPage(enquete);
+                        break;
+                    case R.id.result_button:
+                        sendResultPage(enquete);
+                        break;
+                }
+            }
+        });
+
         try {
             JSONArray forecasts = result.getJSONArray("forecasts");
 
             for (int i=0; i<forecasts.length(); i++) {
                 JSONObject json = forecasts.getJSONObject(i);
                 String date = json.getString("date");
-                arrayAdapter.add(date);
+
+                Enquete enquete = new Enquete();
+                enquete.setId(i);
+                enquete.setTitle(date);
+                adapter.add(enquete);
             }
-            listView.setAdapter(arrayAdapter);
+            listView.setAdapter(adapter);
         } catch(JSONException e) {
             e.printStackTrace();
         }

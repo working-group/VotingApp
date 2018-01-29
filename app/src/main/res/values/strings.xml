@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">VotingApp</string>
-    <string name="resultPage">結果</string>
+    <string name="result">結果</string>
+    <string name="answer">回答</string>
     <string name="return_listPage">一覧へ</string>
     <string name="addQuestionPage">アンケート追加</string>
     <string name="confirm">確認</string>
