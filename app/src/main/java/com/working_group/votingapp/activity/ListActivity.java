@@ -29,7 +29,7 @@ public class ListActivity extends AppCompatActivity {
                 viewEnqueteList(result);
             }
         });
-        api.get("http://weather.livedoor.com/forecast/webservice/json/v1?city=400040");
+        api.get("http://saitos.wmsol.info:56843/enquetes");
     }
 
     /**
@@ -83,15 +83,15 @@ public class ListActivity extends AppCompatActivity {
         });
 
         try {
-            JSONArray forecasts = result.getJSONArray("forecasts");
+            JSONArray enqueteJSON = result.getJSONArray("enquete");
 
-            for (int i=0; i<forecasts.length(); i++) {
-                JSONObject json = forecasts.getJSONObject(i);
-                String date = json.getString("date");
+            for (int i=0; i<enqueteJSON.length(); i++) {
+                JSONObject json = enqueteJSON.getJSONObject(i);
+                String title = json.getString("title");
 
                 Enquete enquete = new Enquete();
                 enquete.setId(i);
-                enquete.setTitle(date);
+                enquete.setTitle(title +"についてのアンケート");
                 adapter.add(enquete);
             }
             listView.setAdapter(adapter);
