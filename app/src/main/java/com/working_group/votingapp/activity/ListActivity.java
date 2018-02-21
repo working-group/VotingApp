@@ -88,9 +88,10 @@ public class ListActivity extends AppCompatActivity {
             for (int i=0; i<forecasts.length(); i++) {
                 JSONObject json = forecasts.getJSONObject(i);
                 String date = json.getString("date");
+                int id = json.getInt("id");
 
                 Enquete enquete = new Enquete();
-                enquete.setId(i);
+                enquete.setId(id);
                 enquete.setTitle(date);
                 adapter.add(enquete);
             }
