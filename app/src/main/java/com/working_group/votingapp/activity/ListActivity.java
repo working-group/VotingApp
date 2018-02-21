@@ -88,9 +88,10 @@ public class ListActivity extends AppCompatActivity {
             for (int i=0; i<enqueteJSON.length(); i++) {
                 JSONObject json = enqueteJSON.getJSONObject(i);
                 String title = json.getString("title");
+                int id = json.getInt("id");
 
                 Enquete enquete = new Enquete();
-                enquete.setId(i);
+                enquete.setId(id);
                 enquete.setTitle(title +"についてのアンケート");
                 adapter.add(enquete);
             }
