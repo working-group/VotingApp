@@ -64,6 +64,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void viewEnqueteList(JSONObject result) {
+
         final ListView listView = (ListView) findViewById(R.id.listView);
         final EnqueteListAdapter adapter = new EnqueteListAdapter(this);
 
@@ -83,7 +84,7 @@ public class ListActivity extends AppCompatActivity {
         });
 
         try {
-            JSONArray enqueteJSON = result.getJSONArray("enquete");
+            JSONArray enqueteJSON = result.getJSONArray("enquetes");
 
             for (int i=0; i<enqueteJSON.length(); i++) {
                 JSONObject json = enqueteJSON.getJSONObject(i);
